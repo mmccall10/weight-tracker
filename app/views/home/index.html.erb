@@ -4,12 +4,8 @@ Low: <%= @min_weight %>
 <%= link_to "New Entry", new_entry_path %>
 
 <br>
-<h3>Last 7</h3>
+<h3>Last 30 days</h3>
 <%= line_chart @user.entries.group_by_day(:date_entered, last: 30).minimum(:weight) %>
-
-
-<h3>Last 4 months</h3>
-<%= line_chart @user.entries.group_by_month(:date_entered, last: 4).minimum(:weight) %>
 
 
 <h3>Last 12 months</h3>
