@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
       if username == ENV["USERNAME"] && password == ENV["PASSWORD"]
-        @user = User.find_or_create_by(username: username)
+        @user = User.find_or_create_by!(username: username)
         return true
       end
 
