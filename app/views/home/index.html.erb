@@ -4,9 +4,12 @@ Low: <%= @min_weight %>
 <%= link_to "New Entry", new_entry_path %>
 
 <br>
+
+<h3>Last 7 days</h3>
+<%= area_chart @user.entries.group_by_day(:date_entered, last: 7, series: false).minimum(:weight) %>
+<br>
 <h3>Last 30 days</h3>
-<%= line_chart @user.entries.group_by_day(:date_entered, last: 30).minimum(:weight) %>
-
-
+<%= area_chart @user.entries.group_by_day(:date_entered, last: 30, series: false).minimum(:weight) %>
+<br>
 <h3>Last 12 months</h3>
-<%= line_chart @user.entries.group_by_month(:date_entered, last: 12).minimum(:weight) %>
+<%= area_chart @user.entries.group_by_month(:date_entered, last: 12, series: false).minimum(:weight) %>
