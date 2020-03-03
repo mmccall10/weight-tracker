@@ -5,31 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <%#= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="min-h-screen bg-gray-100">
-  <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-<!--      <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>-->
-      <%= link_to root_url do %>
-      <span class="font-semibold text-xl tracking-tight">WeightTracker</span>
-        <% end %>
-    </div>
+  <body>
+  <nav style="text-align: center">
 
-    <div class="flex content-center">
-      <div class="text-sm flex-grow">
-        <%= link_to "Entries", entries_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-      </div>
-      <div>
-<!--        <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>-->
+      <%= link_to "Start", root_url, class: 'nes-btn' %>
+      <%= link_to "Entries", entries_path, class: "nes-btn is-success" %>
+
       </div>
     </div>
   </nav>
-  <div class="container mx-auto py-4 px-2">
 
+  <div  style="margin:auto; padding-top: 10px; max-width: 800px; text-align: center">
     <%= yield %>
   </div>
   </body>

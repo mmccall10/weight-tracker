@@ -1,64 +1,42 @@
-<div class="px-2">
-  <div class="flex -mx-2">
-    <div class="w-1/2">
-
-      <div class="rounded overflow-hidden shadow-md">
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">Low</div>
-          <p class="text-gray-700 text-base">
-            <%= @min_weight %> lbs
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="w-1/2 px-2">
-      <div class="rounded overflow-hidden shadow-md">
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">High</div>
-          <p class="text-gray-700 text-base">
-            <%= @max_weight %> lbs
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
+<div class="nes-container with-title is-centered">
+  <p class="title">Low</p>
+  <%= @min_weight %> lbs
 </div>
+<br>
+<div class="nes-container with-title is-centered">
+  <p class="title">High</p>
+  <%= @max_weight %> lbs
+</div>
+<br>
 
-<div class=" py-4">
-  <div class="rounded overflow-hidden shadow-md">
-    <div class="px-2 py-2">
-      <div class="font-bold text-xl mb-2">Last 7 days</div>
-      <%= area_chart @user.entries.group_by_day(:date_entered, last: 7, series: false).minimum(:weight),
+<div class="nes-container with-title">
+  <p class="title">Last 7 days</p>
+      <%= line_chart @user.entries.group_by_day(:date_entered, last: 7, series: false).minimum(:weight),
+                     colors: ["#92cc41"],
                      library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
       %>
-    </div>
-  </div>
+
 </div>
 
+<br>
+<div class="nes-container with-title">
+  <p class="title">Last 30 days</p>
 
-<div class=" py-4">
-  <div class="rounded overflow-hidden shadow-md">
-    <div class="px-2 py-2">
-      <div class="font-bold text-xl mb-2">Last 30 days</div>
-      <%= area_chart @user.entries.group_by_day(:date_entered, last: 30, series: false).minimum(:weight),
+      <%= line_chart @user.entries.group_by_day(:date_entered, last: 30, series: false).minimum(:weight),
+                     colors: ["#92cc41"],
                      library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
       %>
-    </div>
-  </div>
+
 </div>
 
-
-<div class=" py-4">
-  <div class="rounded overflow-hidden shadow-md">
-    <div class="px-2 py-2">
-      <div class="font-bold text-xl mb-2">Last 12 months</div>
-      <%= area_chart @user.entries.group_by_month(:date_entered, last: 12, series: false).minimum(:weight),
+<br>
+<div class="nes-container with-title">
+  <p class="title">Last 12 months</p>
+      <%= line_chart @user.entries.group_by_month(:date_entered, last: 12, series: false).minimum(:weight),
+                     colors: ["#92cc41"],
                      library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
       %>
-    </div>
-  </div>
+
 </div>
 
 
