@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WeightTracker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    <%#= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>WeightTracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"/>
+  <%#= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <nav style="text-align: center">
+<body>
+<nav style="text-align: center">
 
-      <%= link_to "Start", root_url, class: 'nes-btn' %>
-      <%= link_to "Entries", entries_path, class: "nes-btn is-success" %>
-
-      </div>
-    </div>
-  </nav>
-
-  <div  style="margin:auto; padding-top: 10px; max-width: 800px; text-align: center">
-    <%= yield %>
+  <%= link_to "Start", root_url, class: 'nes-btn is-small' %>
+  <%= link_to "Log", entries_path, class: "nes-btn is-success" %>
+  <%= link_to "Profile", profile_path, class: "nes-btn is-primary" %>
   </div>
-  </body>
+  </div>
+</nav>
+
+<div style="margin:auto; padding-top: 10px; max-width: 800px; text-align: center">
+  <%= yield %>
+</div>
+</body>
 </html>

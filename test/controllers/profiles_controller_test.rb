@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ProfilesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,8 +16,8 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create profile" do
-    assert_difference('Profile.count') do
-      post profiles_url, params: { profile: {  } }
+    assert_difference("Profile.count") do
+      post profiles_url, params: {profile: {}}
     end
 
     assert_redirected_to profile_url(Profile.last)
@@ -34,12 +34,12 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update profile" do
-    patch profile_url(@profile), params: { profile: {  } }
+    patch profile_url(@profile), params: {profile: {}}
     assert_redirected_to profile_url(@profile)
   end
 
   test "should destroy profile" do
-    assert_difference('Profile.count', -1) do
+    assert_difference("Profile.count", -1) do
       delete profile_url(@profile)
     end
 

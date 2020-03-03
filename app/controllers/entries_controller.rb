@@ -11,7 +11,7 @@ class EntriesController < ApplicationController
   def create
     @entry = @user.entries.new(entry_params)
     if @entry.save
-      redirect_to entries_path, notice: 'Entry added.'
+      redirect_to entries_path, notice: "Entry added."
     else
       render :new
     end
@@ -19,7 +19,7 @@ class EntriesController < ApplicationController
 
   def destroy
     @entry.destroy
-    redirect_to entries_url, notice: 'Entry was successfully destroyed.'
+    redirect_to entries_url, notice: "Entry was successfully destroyed."
   end
 
   private

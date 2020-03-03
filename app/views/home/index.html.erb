@@ -1,43 +1,44 @@
 <div class="nes-container with-title is-centered">
-  <p class="title">Low</p>
+  <p class="title"><i class="nes-icon trophy is-small"></i> High Score <i class="nes-icon trophy is-small"></i></p>
   <%= @min_weight %> lbs
 </div>
 <br>
 <div class="nes-container with-title is-centered">
-  <p class="title">High</p>
+  <p class="title"><i class="nes-icon close is-small"></i> Low Score <i class="nes-icon close is-small"></i></p>
   <%= @max_weight %> lbs
 </div>
 <br>
 
 <div class="nes-container with-title">
-  <p class="title">Last 7 days</p>
-      <%= line_chart @user.entries.group_by_day(:date_entered, last: 7, series: false).minimum(:weight),
-                     colors: ["#92cc41"],
-                     library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
-      %>
+  <p class="title">7 days </p>
+  <%= line_chart @user.entries.group_by_day(:date_entered, last: 7, series: false).minimum(:weight),
+                 colors: ["#92cc41"],
+                 library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
+  %>
 
 </div>
 
 <br>
 <div class="nes-container with-title">
-  <p class="title">Last 30 days</p>
+  <p class="title">30 days</p>
 
-      <%= line_chart @user.entries.group_by_day(:date_entered, last: 30, series: false).minimum(:weight),
-                     colors: ["#92cc41"],
-                     library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
-      %>
+  <%= line_chart @user.entries.group_by_day(:date_entered, last: 30, series: false).minimum(:weight),
+                 colors: ["#92cc41"],
+                 library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
+  %>
 
 </div>
 
 <br>
 <div class="nes-container with-title">
-  <p class="title">Last 12 months</p>
-      <%= line_chart @user.entries.group_by_month(:date_entered, last: 12, series: false).minimum(:weight),
-                     colors: ["#92cc41"],
-                     library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
-      %>
-
+  <p class="title">12 months</p>
+  <%= line_chart @user.entries.group_by_month(:date_entered, last: 12, series: false).minimum(:weight),
+                 colors: ["#92cc41"],
+                 library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
+  %>
 </div>
+
+
 
 
 
