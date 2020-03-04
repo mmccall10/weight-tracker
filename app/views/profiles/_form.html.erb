@@ -1,19 +1,33 @@
 <%= form_with(model: profile, url: profile_path, local: true) do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+  <div class="nes-container with-title">
+    <p class="title">Edit Profile</p>
+    <% if profile.errors.any? %>
 
-      <ul>
+      <div class="nes-text is-error">
+        <%= pluralize(profile.errors.count, "error") %> prohibited this entry from being saved:
+      </div>
+      <div class="nes-text is-error">
         <% profile.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <p><%= message %></p>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+      </div>
 
-  <div class="actions">
-    <%= form.label "Height Inches" %>
-    <%= form.text_field :height_inches  %>
-    <%= form.submit %>
+    <% end %>
+
+
+    <div class="nes-field">
+      <label for="name_field">Height Inches</label>
+      <%= form.text_field :height_inches, class: "nes-input" %>
+    </div>
+
+    <br>
+
+    <button class="nes-btn is-primary" type="submit">
+      Save
+    </button>
+    <button class="nes-btn" type="submit">
+      Cancel
+    </button>
   </div>
+
 <% end %>
