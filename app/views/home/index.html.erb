@@ -15,7 +15,7 @@
 <br>
 
 <div class="nes-container with-title">
-  <p class="title">7 days </p>
+  <p class="title">7 days [<%=  number_with_precision(@seven_day_average,  precision: 2 )%>]</p>
   <%= line_chart @user.entries.group_by_day(:date_entered, last: 7, series: false).minimum(:weight),
                  colors: ["#92cc41"],
                  library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
@@ -25,7 +25,7 @@
 
 <br>
 <div class="nes-container with-title">
-  <p class="title">30 days</p>
+  <p class="title">30 days [<%=  number_with_precision(@thirty_day_average,  precision: 2 )%>]</p>
 
   <%= line_chart @user.entries.group_by_day(:date_entered, last: 30, series: false).minimum(:weight),
                  colors: ["#92cc41"],
@@ -36,7 +36,7 @@
 
 <br>
 <div class="nes-container with-title">
-  <p class="title">12 months</p>
+  <p class="title">12 mo [<%=  number_with_precision(@twelve_month_average,  precision: 2 )%>]</p>
   <%= line_chart @user.entries.group_by_month(:date_entered, last: 12, series: false).minimum(:weight),
                  colors: ["#92cc41"],
                  library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
