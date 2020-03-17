@@ -1,30 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-
-
-
-    <h3 class="title">Weight Log</h3>
+<h3 class="title">Weight Log</h3>
 <%= link_to 'Log Weight', new_entry_path %>
-  <div class="nes-table-responsive">
-    <table class="nes-table is-bordered is-centered" style="margin-left:auto;margin-right:auto;">
-      <thead>
+<div class="nes-table-responsive">
+  <table class="nes-table is-bordered is-centered" style="margin-left:auto;margin-right:auto;">
+    <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Date Added</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @entries.each do |entry| %>
       <tr>
-        <th>Weight</th>
-        <th>Date Added</th>
-        <th></th>
+        <td><%= entry.weight %></td>
+        <td><%= entry.date_entered %></td>
+        <td><%= link_to 'Destroy', entry_path(entry), method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
-      </thead>
-      <tbody>
-      <% @entries.each do |entry| %>
-        <tr>
-          <td><%= entry.weight %></td>
-          <td><%= entry.date_entered %></td>
-          <td><%= link_to 'Destroy', entry_path(entry), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
 
 

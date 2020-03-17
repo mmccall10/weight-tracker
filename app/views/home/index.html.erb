@@ -18,6 +18,8 @@
   <p class="title">7 days [<%=  number_with_precision(@seven_day_average,  precision: 2 )%>]</p>
   <%= line_chart @user.entries.group_by_day(:date_entered, last: 7, series: false).minimum(:weight),
                  colors: ["#92cc41"],
+                 curve: false,
+                 dataset:{pointStyle: "rect", borderWidth: 4, borderDash: [5, 5]},
                  library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
   %>
 
