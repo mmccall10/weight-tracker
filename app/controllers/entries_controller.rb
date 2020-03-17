@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:destroy]
   def index
-    @entries = @user.entries
+    @entries = @user.entries.order(created_at: :desc)
   end
 
   def new

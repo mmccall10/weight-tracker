@@ -29,6 +29,8 @@
 
   <%= line_chart @user.entries.group_by_day(:date_entered, last: 30, series: false).minimum(:weight),
                  colors: ["#92cc41"],
+                 curve: false,
+                 dataset:{pointStyle: "rect", borderWidth: 4, borderDash: [5, 5]},
                  library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
   %>
 
@@ -39,7 +41,9 @@
   <p class="title">12 mo [<%=  number_with_precision(@twelve_month_average,  precision: 2 )%>]</p>
   <%= line_chart @user.entries.group_by_month(:date_entered, last: 12, series: false).minimum(:weight),
                  colors: ["#92cc41"],
-                 library: {scales: {yAxes: [{ticks: {min: @min_weight}}]}}
+                 curve: false,
+                 dataset:{pointStyle: "rect", borderWidth: 4, borderDash: [5, 5]},
+                 library: {pointStyle: "rect", scales: {yAxes: [{ticks: {min: @min_weight}}]}}
   %>
 </div>
 
